@@ -63,12 +63,17 @@ class DataNormalizer:
         Normaliza el nivel de antigüedad basándose en texto, título o descripción.
         Prioriza la detección de seniority explícita, luego infiere.
         """
-        text_to_analyze = (str(seniority_text or '') + ' ' + str(title or '') + ' ' + str(description or '')).lower()
-        
-        # 1. Búsqueda explícita (De Executive a Junior)
-        for level, keywords in self.seniority_map.items():
-            if any(re.search(r'\b' + re.escape(keyword) + r'\b', text_to_analyze) for keyword in keywords):
-                return level
+        # Un nivel explícito tiene prioridad sobre palabras del nombre del rol.
+        for source in (seniority_text, title, description):
+            text_to_analyze = str(source or '').lower()
+            if re.search(r'\b(?:semi[ -]?senior)\b', text_to_analyze):
+                return 'Mid'
+            if not seniority_text and source == title:
+                # Product Manager/Account Manager describen funciones, no seniority.
+                text_to_analyze = re.sub(r'\b(?:product|account|community) manager\b', '', text_to_analyze)
+            for level, keywords in self.seniority_map.items():
+                if any(re.search(r'(?<!\w)' + re.escape(keyword) + r'(?!\w)', text_to_analyze) for keyword in keywords):
+                    return level
         
         # 2. Heurística forzada: Asignar 'Mid' a roles técnicos base sin prefijo explícito
         # Esto reduce el "Other" para roles comunes.
@@ -85,7 +90,7 @@ class DataNormalizer:
 
     def normalize_job_type(self, job_type_text, description=""):
         """Normaliza el tipo de trabajo (ej. Full-time, Remote, Hybrid)"""
-        text_to_analyze = (job_type_text or "" + " " + description or "").lower()
+        text_to_analyze = (str(job_type_text or "") + " " + str(description or "")).lower()
 
         if 'full-time' in text_to_analyze or 'tiempo completo' in text_to_analyze:
             return 'Full-time'

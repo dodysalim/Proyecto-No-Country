@@ -59,7 +59,8 @@ class CompanyEnricher:
             'industry': self._detect_industry(company_name),
             'hq_country': self._detect_country(company_name),
             'type': self._classify_company_type(company_name),
-            'website': None # Placeholder para futuro enriquecimiento con APIs
+            'website': None,
+            'inference_method': 'name_heuristic' # Estimaciones, no información verificada
         }
         
         self.cache[company_name] = info
@@ -77,7 +78,7 @@ class CompanyEnricher:
 
     def _estimate_company_size(self, company_name: str) -> str:
         """Estimar tamaño de empresa basado en nombre y patrones."""
-        name_lower = company_name.lower()
+        name_lower = company_name.lower().replace('mercado libre', 'mercadolibre')
         
         multinational_keywords = ['google', 'amazon', 'microsoft', 'ibm', 'oracle', 'accenture', 'global', 'international', 'telefónica', 'santander', 'bbva', 'mercadolibre', 'uber', 'rappi', 'binance', 'spotify', 'netflix']
         if any(keyword in name_lower for keyword in multinational_keywords):
@@ -99,13 +100,13 @@ class CompanyEnricher:
     
     def _detect_industry(self, company_name: str) -> str:
         """Detectar industria basada en nombre de empresa."""
-        name_lower = company_name.lower()
+        name_lower = company_name.lower().replace('mercado libre', 'mercadolibre')
         
         industries = {
             'Fintech': ['fintech', 'bank', 'banco', 'financial', 'finance', 'credit', 'lending', 'payments', 'pagos', 'crypto', 'cripto'],
             'EdTech': ['edtech', 'education', 'educación', 'learning', 'academy', 'campus', 'universidad', 'escuela'],
             'HealthTech': ['health', 'medical', 'hospital', 'clinic', 'care', 'biotech', 'salud'],
-            'E-commerce': ['store', 'shop', 'market', 'retail', 'commerce', 'ecommerce', 'marketplace'],
+            'E-commerce': ['store', 'shop', 'market', 'retail', 'commerce', 'ecommerce', 'marketplace', 'mercadolibre'],
             'Consultoría': ['consulting', 'consultoría', 'services', 'solutions', 'strategy', 'asesoría'],
             'Manufactura': ['manufactura', 'manufacturing', 'industrial', 'fábrica'],
             'Logística': ['logistics', 'logística', 'delivery', 'envío'],
@@ -128,7 +129,7 @@ class CompanyEnricher:
             if any(keyword in name_lower for keyword in keywords):
                 return country
         
-        return 'Latam' # Default a región si no se puede detectar un país específico
+        return 'No especificado' # Una región no es un país de sede verificado
     
     def _classify_company_type(self, company_name: str) -> str:
         """Clasificar tipo de empresa."""
