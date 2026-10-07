@@ -1,3 +1,26 @@
+# LatAm Insights · Mercado laboral
+
+Proyecto de simulación de No Country para extracción, procesamiento y visualización de vacantes.
+
+**Para revisar:** `main.py, dashboard.py, requirements.txt`.
+
+**Contexto:** Los scrapers dependen del acceso a fuentes externas. La ejecución de un dashboard no prueba la actualización de vacantes.
+
+## Inicio
+
+Desde la raíz del repositorio, en un entorno virtual con sus datos disponibles:
+
+```bash
+python -m pip install -r requirements.txt
+python -m streamlit run dashboard.py
+```
+
+Consulta [el caso de proyecto](docs/PORTFOLIO_CASE.md) para el alcance y los criterios de revisión.
+
+---
+
+## Documentación detallada existente
+
 # 🚀✨ Plataforma de Inteligencia de Mercado Laboral: LatAm Insights
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
