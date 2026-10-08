@@ -40,7 +40,7 @@ jobs:
       - name: Run unit and integration tests
         run: |
           echo "Ejecutando pruebas unitarias/integración si existen..."
-          pytest || true # Permite que el paso falle pero no detiene el workflow si no hay tests
+          python -m pytest tests -q
 
       - name: Smoke test main.py (Help command)
         run: |

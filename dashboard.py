@@ -6,7 +6,9 @@ import subprocess
 import time
 import logging
 from dotenv import load_dotenv
-import sys # <--- ¡AÑADIDO! Esto es crucial.
+import sys
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).resolve().parent
 from database.supabase_client import SupabaseClient
 from analysis.report_generator import ReportGenerator
 from analysis.trend_analyzer import TrendAnalyzer
@@ -87,7 +89,7 @@ st.markdown("""
 # --- TÍTULO PRINCIPAL CON ESTILO ---
 st.title("📊 LatAm Job Market Intelligence")
 st.markdown("""
-Una visión en tiempo real del mercado laboral en **Latam** y más allá, 
+Análisis de las vacantes disponibles en el mercado laboral en **Latam** y más allá, 
 con análisis de tendencias e insights generados por IA.
 """)
 
@@ -173,6 +175,7 @@ with st.sidebar:
             cmd,
             capture_output=True,
             text=True,
+            cwd=PROJECT_ROOT,
             env=env,
             check=False
         )
@@ -228,6 +231,7 @@ with st.sidebar:
                     [sys.executable, "main.py", "--analyze-trends"], # <--- También aplicando sys.executable aquí para consistencia
                     capture_output=True,
                     text=True,
+                    cwd=PROJECT_ROOT,
                     check=False
                 )
                 if result.returncode == 0:
