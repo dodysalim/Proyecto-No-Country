@@ -1,0 +1,281 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "table6",
+  "position": {
+    "x": 30,
+    "y": 540,
+    "z": 7,
+    "height": 290,
+    "width": 1220,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vacantes"
+                    }
+                  },
+                  "Property": "sector"
+                }
+              },
+              "queryRef": "Vacantes.sector",
+              "nativeQueryRef": "sector",
+              "displayName": "sector",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vacantes"
+                    }
+                  },
+                  "Property": "company_name"
+                }
+              },
+              "queryRef": "Vacantes.company_name",
+              "nativeQueryRef": "company_name",
+              "displayName": "company_name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vacantes"
+                    }
+                  },
+                  "Property": "country"
+                }
+              },
+              "queryRef": "Vacantes.country",
+              "nativeQueryRef": "country",
+              "displayName": "country",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vacantes"
+                    }
+                  },
+                  "Property": "seniority"
+                }
+              },
+              "queryRef": "Vacantes.seniority",
+              "nativeQueryRef": "seniority",
+              "displayName": "seniority",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vacantes"
+                    }
+                  },
+                  "Property": "title"
+                }
+              },
+              "queryRef": "Vacantes.title",
+              "nativeQueryRef": "title",
+              "displayName": "title",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vacantes"
+                    }
+                  },
+                  "Property": "source_platform"
+                }
+              },
+              "queryRef": "Vacantes.source_platform",
+              "nativeQueryRef": "source_platform",
+              "displayName": "source_platform",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vacantes"
+                    }
+                  },
+                  "Property": "continent"
+                }
+              },
+              "queryRef": "Vacantes.continent",
+              "nativeQueryRef": "continent",
+              "displayName": "continent",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vacantes"
+                    }
+                  },
+                  "Property": "posted_date"
+                }
+              },
+              "queryRef": "Vacantes.posted_date",
+              "nativeQueryRef": "posted_date",
+              "displayName": "posted_date",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Detalle filtrable · exportación pendiente'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#183047'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E1E8F0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

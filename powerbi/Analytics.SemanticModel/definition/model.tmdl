@@ -1,0 +1,8 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+
+ref table Vacantes
+ref table Skills
+ref expression DataFolder

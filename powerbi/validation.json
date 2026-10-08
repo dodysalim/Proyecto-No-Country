@@ -1,0 +1,10 @@
+{
+  "repo": "Proyecto-No-Country",
+  "pages": 10,
+  "visuals": 68,
+  "tables": {
+    "Vacantes": 0,
+    "Skills": 0
+  },
+  "status": "PENDIENTE DE DATOS · Supabase sin exportación disponible · no se muestran vacantes ficticias"
+}
