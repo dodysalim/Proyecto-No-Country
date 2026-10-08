@@ -50,7 +50,7 @@ jobs:
   analyze-and-deploy-trends:
     needs: build-and-test
     # Solo ejecutar en push a la rama 'main' (para evitar duplicar en PRs o en el schedule)
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: vars.AUTOMATION_ENABLED == 'true' && github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
 
     env:
@@ -82,7 +82,7 @@ jobs:
   run-scrapers-daily:
     needs: build-and-test
     # Se ejecuta en 'schedule' O si se activa manualmente 'workflow_dispatch'
-    if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+    if: vars.AUTOMATION_ENABLED == 'true' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     env:

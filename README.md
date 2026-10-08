@@ -69,3 +69,7 @@ python -m pytest tests -q
 Simulación laboral de No Country. Se conserva la documentación y autoría del proyecto colectivo.
 
 [Documentación anterior](docs/ORIGINAL_README.md), conservada como referencia histórica.
+
+### Automatización opcional
+
+Las pruebas se ejecutan en cada cambio. Para habilitar los jobs que escriben tendencias en Supabase o ejecutan scraping programado, configura las credenciales y la variable de repositorio `AUTOMATION_ENABLED=true`. Hasta entonces esos jobs permanecen desactivados; la aplicación puede ejecutarse manualmente con su configuración local.
