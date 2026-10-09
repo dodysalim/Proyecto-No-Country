@@ -6,7 +6,7 @@
 
 NO COUNTRY · MERCADO LABORAL · Python · Scrapy · Supabase · Streamlit
 
-[Portafolio](https://dodysalim.github.io/) · [Caso y alcance](docs/PORTFOLIO_CASE.md) · [Verificación](docs/VALIDATION.md)
+[No Country Showcase](https://nocountry.tech/showcase/simulacion-laboral-noviembre-2025/equipo-27-datascience) · [Portafolio](https://dodysalim.github.io/) · [Caso y alcance](docs/PORTFOLIO_CASE.md) · [Verificación](docs/VALIDATION.md)
 
 ## La pregunta
 
@@ -67,6 +67,17 @@ python -m pytest tests -q
 ## Autoría
 
 Simulación laboral de No Country. Se conserva la documentación y autoría del proyecto colectivo.
+
+
+### Equipo · Noviembre 2025
+
+| Integrante | Rol publicado |
+| --- | --- |
+| Juan | Machine Learning Engineer |
+| Rosa | Data Scientist |
+| Dody | Data analyst |
+
+Créditos basados en el [showcase oficial](https://nocountry.tech/showcase/simulacion-laboral-noviembre-2025/equipo-27-datascience). Se conserva la autoría colectiva.
 
 [Documentación anterior](docs/ORIGINAL_README.md), conservada como referencia histórica.
 
