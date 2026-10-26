@@ -1,0 +1,51 @@
+table Skills
+
+	column 'metric_value'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: metric_value
+
+	column 'metric_name'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: metric_name
+
+	column 'country'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: country
+
+	column 'sector'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: sector
+
+	column 'date'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: date
+
+	column 'count'
+		dataType: double
+		summarizeBy: none
+		sourceColumn: count
+
+	measure KPI_Demanda = SUM(Skills[count])
+		formatString: #,0.00
+		displayFolder: Indicadores
+
+	measure KPI_Demandadas = CALCULATE(SUM(Skills[count]), Skills[metric_name]="most_demanded_skill")
+		formatString: #,0
+
+	measure KPI_Crecimiento = CALCULATE(SUM(Skills[count]), Skills[metric_name]="growing_skill")
+		formatString: #,0
+
+	partition Skills = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "Skills.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"metric_value", type text}, {"metric_name", type text}, {"country", type text}, {"sector", type text}, {"date", type text}, {"count", type number}}, "en-US")
+				in
+				    Typed
