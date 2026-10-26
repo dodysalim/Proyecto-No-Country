@@ -37,3 +37,8 @@ Thumbs.db
 
 scrapers/jobscraper_temp_backup/
 =3.5.4
+
+# Mantenimiento
+.venv/
+.ipynb_checkpoints/
+.pytest_cache/
