@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/dodysalim/Proyecto-No-Country/actions"><img src="https://github.com/dodysalim/Proyecto-No-Country/actions/workflows/ci-cd.yml/badge.svg" alt="CI"></a> <img src="https://img.shields.io/badge/versión-1.1.0-8F7BFF?style=flat-square" alt="Versión 1.1.0">
+<a href="https://github.com/dodysalim/Proyecto-No-Country/actions"><img src="https://github.com/dodysalim/Proyecto-No-Country/actions/workflows/ci-cd.yml/badge.svg" alt="CI"></a> <img src="https://img.shields.io/badge/versión-2.0.0-8F7BFF?style=flat-square" alt="Versión 2.0.0">
 </p>
 
 <p align="center"><a href="https://nocountry.tech/showcase/simulacion-laboral-noviembre-2025/equipo-27-datascience"><b>🏆 Showcase No Country</b></a> · <a href="https://dodysalim.github.io/"><b>🌐 Portafolio</b></a> · <a href="docs/PORTFOLIO_CASE.md"><b>📄 Caso de estudio</b></a></p>
@@ -27,7 +27,7 @@
 | **🎯 Problema** | Entender qué habilidades y perfiles piden las ofertas de empleo en datos, y cómo varían por ubicación. |
 | **🛠️ Solución** | Scrapers de LinkedIn y Computrabajo, ETL con normalización de seniority y extracción de habilidades. |
 | **📈 Entregables** | Dashboard con filtros, tendencias y exportación; Power BI para PC y móvil. |
-| **🧪 Calidad** | 14 pruebas automatizadas del ETL y reportes. |
+| **🧪 Calidad** | 27 pruebas automatizadas (ETL, reportes y dashboard); arquitectura por capas con principios SOLID. |
 | **👤 Mi rol** | Data Analyst en equipo de 3 personas. |
 
 ## ❓ La pregunta de negocio
@@ -71,12 +71,13 @@ Requiere SUPABASE_URL y SUPABASE_SERVICE_KEY en un .env local. GEMINI_API_KEY es
 | --- | --- |
 | [etl/](etl/) | Transformaciones y extracción de habilidades |
 | [scrapers/](scrapers/) | Recolección por fuente |
-| [dashboard.py](dashboard.py) | Aplicación de análisis |
+| [dashboard.py](dashboard.py) | Punto de entrada de Streamlit |
+| [dashboard_app/](dashboard_app/) | Dashboard por capas: `config`, `data` (repositorio + transformaciones puras), `services` y `ui` |
 | [tests/](tests/) | Pruebas de componentes ETL |
 
 ## ✅ Calidad y alcance
 
-14 pruebas ETL y reportes aprobadas. Arranque del dashboard comprobado sin credenciales: muestra la falta de conexión, sin excepción no controlada.
+27 pruebas aprobadas: ETL, reportes y lógica del dashboard. Arranque del dashboard comprobado sin credenciales: muestra la falta de conexión, sin excepción no controlada.
 
 No se comprobó una extracción en vivo ni la escritura en Supabase. La disponibilidad depende de las fuentes, permisos y credenciales.
 
