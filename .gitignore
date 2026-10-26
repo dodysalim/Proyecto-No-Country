@@ -42,3 +42,6 @@ scrapers/jobscraper_temp_backup/
 .venv/
 .ipynb_checkpoints/
 .pytest_cache/
+
+# Código del dashboard (no son datos)
+!dashboard_app/data/

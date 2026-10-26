@@ -65,6 +65,24 @@ Requiere SUPABASE_URL y SUPABASE_SERVICE_KEY en un .env local. GEMINI_API_KEY es
 
 [Archivos e instrucciones](powerbi/README.md). Descarga el repositorio completo y abre `powerbi/Abrir-PowerBI.bat` en Windows; después pulsa **Actualizar**. Incluye A4 horizontal a tamaño real (100 %) y diseño móvil vertical. El archivo `.pbip` necesita sus carpetas Report, SemanticModel y data.
 
+## 🏗️ Arquitectura
+
+```mermaid
+flowchart LR
+    subgraph Fuentes
+        LI[Scraper LinkedIn] & CT[Scraper Computrabajo]
+    end
+    LI & CT --> ETL["ETL<br/>limpieza · seniority · habilidades"] --> SB[(Supabase)]
+    SB --> REPO["SupabaseJobRepository<br/><i>implementa JobMarketRepository</i>"]
+    subgraph dashboard_app
+        REPO --> PROC["data/processing<br/>funciones puras"]
+        PROC --> SRV["services<br/>caché · comandos · casos de uso"]
+        SRV --> UI["ui<br/>KPIs · registro de pestañas · fábrica de gráficos"]
+    end
+    UI --> ST([Streamlit])
+    SB --> IA["Reporte IA (Gemini)"] --> UI
+```
+
 ## 🧭 Estructura del repositorio
 
 | Ruta | Qué contiene |
