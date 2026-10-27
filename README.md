@@ -4,6 +4,8 @@
 
 <p align="center"><b>De vacantes dispersas a información útil sobre perfiles, habilidades y sectores.</b></p>
 
+<p align="center"><a href="https://proyecto-no-country-suy3cnnrkvzkdja5rfhovq.streamlit.app/"><b>Demo en vivo ↗</b></a></p>
+
 <p align="center">
 <img src="https://img.shields.io/badge/No_Country_%C2%B7_Equipo_27_%C2%B7_Noviembre_2025-75E6CE?style=for-the-badge&labelColor=0b1222" alt="No Country · Equipo 27 · Noviembre 2025">
 </p>

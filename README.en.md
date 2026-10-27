@@ -4,6 +4,8 @@
 
 <p align="center"><b>From scattered job postings to useful insight on profiles, skills and sectors.</b></p>
 
+<p align="center"><a href="https://proyecto-no-country-suy3cnnrkvzkdja5rfhovq.streamlit.app/"><b>Live demo ↗</b></a></p>
+
 <p align="center"><img src="https://img.shields.io/badge/No_Country_·_Team_27_·_November_2025-75E6CE?style=for-the-badge&labelColor=0b1222" alt="No Country · Team 27 · November 2025"></p>
 
 <p align="center">
