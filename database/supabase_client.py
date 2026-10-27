@@ -10,15 +10,18 @@ from typing import List, Dict, Any, Optional
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class SupabaseClient:
-    def __init__(self):
+    def __init__(self, read_only: bool = False):
+        # read_only=True usa la clave anónima (SUPABASE_KEY): el dashboard solo lee.
+        # Los scrapers y las operaciones de escritura usan SUPABASE_SERVICE_KEY.
         url: str = os.environ.get("SUPABASE_URL")
-        service_key: str = os.environ.get("SUPABASE_SERVICE_KEY")
-        
-        if not url or not service_key:
-            logging.error("Faltan credenciales de Supabase (SUPABASE_URL o SUPABASE_SERVICE_KEY) en .env")
-            raise Exception("Faltan credenciales de Supabase (SUPABASE_URL o SUPABASE_SERVICE_KEY) en .env")
-            
-        self.supabase: Client = create_client(url, service_key)
+        key_name = "SUPABASE_KEY" if read_only else "SUPABASE_SERVICE_KEY"
+        key: str = os.environ.get(key_name)
+
+        if not url or not key:
+            logging.error(f"Faltan credenciales de Supabase (SUPABASE_URL o {key_name}) en .env")
+            raise Exception(f"Faltan credenciales de Supabase (SUPABASE_URL o {key_name}) en .env")
+
+        self.supabase: Client = create_client(url, key)
         logging.info("SupabaseClient inicializado.")
 
     def upsert_job(self, job_data: Dict[str, Any]):

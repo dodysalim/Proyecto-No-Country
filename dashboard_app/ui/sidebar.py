@@ -79,6 +79,9 @@ def _trend_controls(data_cache) -> None:
 
 
 def _maintenance_controls(repo_factory, data_cache) -> None:
+    import os
+    if os.getenv("ALLOW_DB_CLEAR") != "1":
+        return
     st.markdown("---")
     st.subheader("⚠️ Mantenimiento de Datos")
     if st.button("🗑️ Limpiar Base de Datos", type="secondary", use_container_width=True, key="clear_db_only_btn"):

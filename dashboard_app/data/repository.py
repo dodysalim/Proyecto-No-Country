@@ -18,8 +18,10 @@ class SupabaseJobRepository:
 
     def __init__(self, client=None):
         if client is None:
+            import os
             from database.supabase_client import SupabaseClient
-            client = SupabaseClient()
+            # Solo lectura por defecto; el modo administrador (ALLOW_DB_CLEAR=1) usa la clave de servicio.
+            client = SupabaseClient(read_only=os.getenv("ALLOW_DB_CLEAR") != "1")
         self._client = client
 
     @staticmethod
